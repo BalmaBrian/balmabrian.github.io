@@ -2,9 +2,11 @@
 title: "Hi, I am Brian Almaguer, I am a Computer Science University Student."
 ---
 
+{{< figure class="avatar" src="/img/avatar.jpg" alt="avatar">}}
+
 # Welcome to my website!
 
-I am a Computer Science University Student. I am currently working on my Bachelor's Degree in Computer Science at California State University, Sacramento.
+My name is Brian Almaguer and I am a Computer Science University Student. I am currently working on my Bachelor's Degree in Computer Science at California State University, Sacramento.
 
 ## Education
 
@@ -12,7 +14,7 @@ I am a Computer Science University Student. I am currently working on my Bachelo
   - August 2018 - Present
   - Bachelor of Science in Computer Science
   - Expected Graduation: May 2022
-
+  
 - Bakersfield College
   - June 2014 - June 2018
   - Associate's in AG Business as a Dual Enrollment Student

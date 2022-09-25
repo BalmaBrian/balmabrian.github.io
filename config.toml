@@ -1,17 +1,17 @@
 baseURL = 'https://balmabrian.github.io/'
 languageCode = 'en-us'
-title = "BalmaBrian's Development Site"
-
-# [params]
-  # footer = "&copy; [Yihui Xie](https://yihui.name) 2017"
-
-# [permalinks]
-#   about = "/about/:slug/"
+title = "The Dev Corner"
+theme = 'researcher'
   
 [[menu.main]]
   name = "Home"
   url = "/"
   weight = 1
+
+[[menu.main]]
+  name = "About"
+  url = "/about/"
+  weight = 2
 
 [[menu.main]]
   name = "Posts"
@@ -24,6 +24,6 @@ title = "BalmaBrian's Development Site"
   weight = 4
 
 [[menu.main]]
-  name = "Work/Research"
+  name = "Work"
   url = "/work/"
   weight = 5
