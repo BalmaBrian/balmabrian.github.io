@@ -1,10 +1,5 @@
 ---
 title: "$ whoami"
-layout: 'single'
-menu:
-  main:
-    name: "About"
-    weight: 2
 ---
 
 # About
