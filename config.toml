@@ -1,20 +1,17 @@
 baseURL = 'https://balmabrian.github.io/'
 languageCode = 'en-us'
 title = "BalmaBrian's Development Site"
-theme = 'hugo-xmin'
 
 # [params]
   # footer = "&copy; [Yihui Xie](https://yihui.name) 2017"
 
+# [permalinks]
+#   about = "/about/:slug/"
+  
 [[menu.main]]
   name = "Home"
   url = "/"
   weight = 1
-
-[[menu.main]]
-  name = "About"
-  url = "/about/"
-  weight = 2
 
 [[menu.main]]
   name = "Posts"
@@ -30,8 +27,3 @@ theme = 'hugo-xmin'
   name = "Work/Research"
   url = "/work/"
   weight = 5
-
-[[menu.main]]
-  name = "Contact"
-  url = "/contact/"
-  weight = 6

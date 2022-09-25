@@ -1,6 +1,10 @@
 ---
 title: "$ whoami"
-data: 2022-25-09
+layout: 'single'
+menu:
+  main:
+    name: "About"
+    weight: 2
 ---
 
 # About
