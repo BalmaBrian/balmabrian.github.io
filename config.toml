@@ -1,42 +1,34 @@
 baseURL = 'https://balmabrian.github.io'
 languageCode = 'en-us'
+theme = "hugo-theme-monochrome"
 title = "The Dev Corner"
-theme = "risotto"
 
 [params]
-  author = "Brian Almaguer"
-  description = "A blog about software development and other things."
-  # favicon = "favicon.ico"  # path to a .ico to use as favicon
-  # logo = ""  # url or path to a logo to put in the header
-  [params.footer]
-    text = "By Brian Almaguer"
-    url = "https://github.com/balmabrian"
+  footer = "Made by Brian Almaguer"
+  enable_toc = false
 
 [menu]
-  [[menu.main]]
+  [[menu.navbar]]
     name = "Home"
     url = "/"
     weight = 1
-
-  [[menu.main]]
+# 
+  [[menu.navbar]]
     name = "About"
     url = "/about/"
     weight = 2
-
-  [[menu.main]]
+# 
+  [[menu.navbar]]
     name = "Posts"
     url = "/posts/"
     weight = 3
-
-  [[menu.main]]
+# 
+  [[menu.navbar]]
     name = "Notes"
     url = "/notes/"
     weight = 4
-
-  [[menu.main]]
+# 
+  [[menu.navbar]]
     name = "Work"
     url = "/work/"
     weight = 5
-
-[markup.goldmark.renderer]
-  unsafe = true
