@@ -12,23 +12,28 @@ title = "The Dev Corner"
     name = "Home"
     url = "/"
     weight = 1
-# 
+ 
   [[menu.navbar]]
     name = "About"
     url = "/about/"
     weight = 2
-# 
+ 
   [[menu.navbar]]
     name = "Posts"
     url = "/posts/"
     weight = 3
-# 
+ 
   [[menu.navbar]]
     name = "Notes"
     url = "/notes/"
     weight = 4
-# 
+ 
   [[menu.navbar]]
     name = "Work"
     url = "/work/"
     weight = 5
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
