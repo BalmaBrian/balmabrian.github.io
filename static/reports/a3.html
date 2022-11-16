@@ -33,18 +33,14 @@
       <section>
         <h2>Visualizations</h2>
         <label for="selectYear">Year</label>
-        <select id="selectYear" onchange="updateVisual_01()"></select>
+        <select id="selectYear" onchange="updateVisual()"></select>
         <label for="selectRank">Ranking</label>
-        <select id="selectRank" onchange="updateVisual_01()"></select>
-        <br />
-        <div id="vis1" width="500px"></div>
-      </section>
-      <section>
-        <h2>Animated Visualization</h2>
+        <select id="selectRank" onchange="updateVisual()"></select>
         <button id="playButton" onclick="playAnimation()">
           Play Animation
         </button>
-        <div id="vis2" width="500px"></div>
+        <br />
+        <div id="vis" width="500px"></div>
       </section>
     </div>
     <script src="a3.js"></script>

@@ -65,7 +65,7 @@ function keepTop(data, top) {
   return topData;
 }
 
-function updateVisual_01() {
+function updateVisual() {
   var snapshots = internet_users.filter(
     (d) => d.Year == document.getElementById("selectYear").value
   );
@@ -130,17 +130,17 @@ function updateVisual_01() {
   };
   spec.data.values = spec.data.values.filter((d) => d.entity != "World");
   spec.data.values = keepTop(spec.data.values, ranking);
-  vegaEmbed("#vis1", spec);
+  vegaEmbed("#vis", spec);
 }
 
 function init() {
   createOptions();
-  updateVisual_01();
+  updateVisual();
 }
 
 function playAnimation() {
   // set innerHTML of button to vis2 to display loading animation
-  document.getElementById("vis2").innerHTML = "Loading...";
+  document.getElementById("vis").innerHTML = "Loading...";
   var snapshots, ranking, spec;
   for (let i = 0; i < years().length; i++) {
     setTimeout(function () {
@@ -206,7 +206,7 @@ function playAnimation() {
       };
       spec.data.values = spec.data.values.filter((d) => d.entity != "World");
       spec.data.values = keepTop(spec.data.values, ranking);
-      vegaEmbed("#vis2", spec);
+      vegaEmbed("#vis", spec);
     }, 5000);
   }
 }
