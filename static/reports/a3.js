@@ -11,7 +11,6 @@ var internet_users = Papa.parse("users-by-country.csv", {
   },
 });
 
-
 function years() {
   let year = [];
   for (let i = 0; i < internet_users.length; i++) {
@@ -62,8 +61,7 @@ function getSnapshots(animated, i) {
   if (animated) {
     console.log(i + "\t" + years()[i]);
     snapshots = internet_users.filter((d) => d.Year == years()[i]);
-  }
-  else {
+  } else {
     snapshots = internet_users.filter(
       (d) => d.Year == document.getElementById("selectYear").value
     );
@@ -79,17 +77,14 @@ function getSnapshots(animated, i) {
   return snapshots;
 }
 
-
 function getGrowthSnapshots(snapshots, animated, i) {
-
   var previous_year_snapshots;
   if (animated) {
     // Get all snapshots from currently animated year
     previous_year_snapshots = internet_users.filter(
       (d) => d.Year == years()[i] - 1
     );
-  }
-  else {
+  } else {
     // Get all snapshots from the year preceding the currently selected year
     previous_year_snapshots = internet_users.filter(
       (d) => d.Year == document.getElementById("selectYear").value - 1
@@ -102,7 +97,9 @@ function getGrowthSnapshots(snapshots, animated, i) {
 
   // Refine each set of snapshots to only countries that have data for both years
   snapshots = [...new Set(getSharedSnapshots(common_countries, snapshots))];
-  previous_year_snapshots = [...new Set(getSharedSnapshots(common_countries, previous_year_snapshots))];
+  previous_year_snapshots = [
+    ...new Set(getSharedSnapshots(common_countries, previous_year_snapshots)),
+  ];
 
   // If displaying user growth, subtract previous year users from current year
   for (let i = 1; i < snapshots.length; i++) {
@@ -114,11 +111,11 @@ function getGrowthSnapshots(snapshots, animated, i) {
 
 function createOptions() {
   var select = document.getElementById("selectYear");
-  select.innerHTML = '';
+  select.innerHTML = "";
 
   // Do not allow the user to select the first year if displaying growth
   var i;
-  document.getElementById("displayMode").value == "growth" ? i = 1 : i = 0;
+  document.getElementById("displayMode").value == "growth" ? (i = 1) : (i = 0);
 
   for (i; i < years().length - 1; i++) {
     var option = document.createElement("option");
@@ -128,6 +125,8 @@ function createOptions() {
   document.getElementById("selectYear").innerHTML = select.innerHTML;
 
   select = document.getElementById("selectRank");
+  select.innerHTML = "";
+
   var options = [3, 5, 10, 20];
   for (let i = 0; i < options.length; i++) {
     var option = document.createElement("option");
@@ -156,11 +155,19 @@ function updateVisual() {
   var chart_title, x_axis_label;
 
   if (document.getElementById("displayMode").value == "growth") {
-    chart_title = "Top " + ranking + " countries by internet user growth in the year " + snapshots[0].Year;
-    x_axis_label = "Number of new internet users in the year " + snapshots[0].Year;
-  }
-  else {
-    chart_title = "Top " + ranking + " countries by total internet users in the year " + snapshots[0].Year;
+    chart_title =
+      "Top " +
+      ranking +
+      " countries by internet user growth in the year " +
+      snapshots[0].Year;
+    x_axis_label =
+      "Number of new internet users in the year " + snapshots[0].Year;
+  } else {
+    chart_title =
+      "Top " +
+      ranking +
+      " countries by total internet users in the year " +
+      snapshots[0].Year;
     x_axis_label = "Total internet users in the year " + snapshots[0].Year;
   }
 
@@ -244,11 +251,19 @@ function playAnimation() {
       let snapshots = getSnapshots(true, i);
 
       if (document.getElementById("displayMode").value == "growth") {
-        chart_title = "Top " + ranking + " countries by internet user growth in the year " + snapshots[0].Year;
-        x_axis_label = "Number of new internet users in the year " + snapshots[0].Year;
-      }
-      else {
-        chart_title = "Top " + ranking + " countries by total internet users in the year " + snapshots[0].Year;
+        chart_title =
+          "Top " +
+          ranking +
+          " countries by internet user growth in the year " +
+          snapshots[0].Year;
+        x_axis_label =
+          "Number of new internet users in the year " + snapshots[0].Year;
+      } else {
+        chart_title =
+          "Top " +
+          ranking +
+          " countries by total internet users in the year " +
+          snapshots[0].Year;
         x_axis_label = "Total internet users in the year " + snapshots[0].Year;
       }
 
