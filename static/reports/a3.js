@@ -6,7 +6,9 @@ var internet_users = Papa.parse("users-by-country.csv", {
   download: true,
   dynamicTyping: true,
   complete: function (results) {
+    console.log("Parsing complete:");
     internet_users = results.data;
+    init();
   },
 });
 
@@ -20,10 +22,10 @@ var internet_users = Papa.parse("users-by-country.csv", {
 //   },
 // });
 
-// Load data on handling the data and visualizations
-if (document.isConnected) {
-  window.addEventListener("load", init);
-}
+// // Load data on handling the data and visualizations
+// if (document.isConnected) {
+//   window.addEventListener("load", init);
+// }
 
 function years() {
   let year = [];
