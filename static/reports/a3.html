@@ -33,10 +33,21 @@
       </section>
       <section>
         <h2>Visualizations</h2>
-        <label for="selectYear">Year</label>
         <select id="selectYear" onchange="updateVisual()"></select>
-        <label for="selectRank">Ranking</label>
+        <label for="selectYear">Year</label>
+
+        <br />
         <select id="selectRank" onchange="updateVisual()"></select>
+        <label for="selectRank">Ranking</label>
+
+        <br />
+        <select id="displayMode" onchange="init()">
+          <option value="total">Total</option>
+          <option value="growth">Growth</option>
+        </select>
+        <label for="displayMode">Display Mode</label>
+
+        <br />
         <button id="playButton" onclick="playAnimation()">
           Play Animation
         </button>
