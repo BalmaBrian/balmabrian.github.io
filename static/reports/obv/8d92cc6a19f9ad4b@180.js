@@ -2,41 +2,6 @@ function _1(md){return(
 md`# Internet Users All over the World`
 )}
 
-function _2(md){return(
-md`### Design Decisions
-
-Our visual encoding of choice was a bar chart, as the initial vision for this visualization was to have a bar chart race, in which the bars grow with respect to time to give the viewer perspective on how the number of internet users changed from year to year. 
-
-Interactions:
-* Year: Being able to view individual years proved to be useful, as the viewer may want to see if there were any notable jumps that sync up to events or jumps in technology. 
-* Rank: Refining how many ranks are shown concurrently allows the viewer to avoid cluttering the screen with too much data at once.
-* Display mode: Changing the display mode from total to growth is a way to show the rate of change over time and find landmark years in which large jumps were made.
-* Animation: The viewer can easily see how total users and user growth changed over time without having to click repeatedly to change from year to year.
-
-A world map visualization was what we initially planned to use, but we decided against it because it required too many external libraries and it couldn't be done within the timeframe allotted for this project.
-
----`
-)}
-
-function _3(md){return(
-md`### Development Process
-
-Brian: I explored the differences between D3 and vega-lite in different platforms when applied to a self-hosted website. I then setup the boilerplate code for the data to auto update according to different user inputs. Finally I defined the spec used to create the vega-lite graph used for our interactive graph.
-
-Lukas: Our dataset is over multiple years and I've seen a couple of videos on youtube that was histograms that evolved over years, so since our data could easily accommodate that we decided to use that. Initially, we wanted to use a world map that would change color and saturation with years, but there were many libraries and each country needed a code that the data didn't have so cleaning the data would have been too cumbersome and taken too long.
-
-Amrin: I worked on displaying growth each year to supplement the total users per year visualization that we had implemented. This actually proved more challenging than I had already thought and took significantly more time due to my lack of experience with Javascript and how data is handled in it.
-
-The total time spent in development was roughly 15 hours, with around 4 hours spent per team member working in parallel individually, and a final 3 collaboratively to make our contributions click into place. The most time-consuming aspects of this visualization were: 
-- "getting javascript to work" -Brian
--  "calculating growth values from totals without royally messing things up in javascript" -Amrin
-- "getting javascript to accept my CSV :(" -Lukas`
-)}
-
-async function _data(d3,FileAttachment){return(
-d3.csvParse(await FileAttachment("173Interactive_1.csv").text(), d3.autoType)
-)}
-
 async function* _chart(d3,width,height,bars,axis,labels,ticker,keyframes,duration,x,invalidation)
 {
   //replay;
@@ -69,6 +34,41 @@ async function* _chart(d3,width,height,bars,axis,labels,ticker,keyframes,duratio
   }
 }
 
+
+function _3(md){return(
+md`### Design Decisions
+
+Our visual encoding of choice was a bar chart, as the initial vision for this visualization was to have a bar chart race, in which the bars grow with respect to time to give the viewer perspective on how the number of internet users changed from year to year. 
+
+Interactions:
+* Year: Being able to view individual years proved to be useful, as the viewer may want to see if there were any notable jumps that sync up to events or jumps in technology. 
+* Rank: Refining how many ranks are shown concurrently allows the viewer to avoid cluttering the screen with too much data at once.
+* Display mode: Changing the display mode from total to growth is a way to show the rate of change over time and find landmark years in which large jumps were made.
+* Animation: The viewer can easily see how total users and user growth changed over time without having to click repeatedly to change from year to year.
+
+A world map visualization was what we initially planned to use, but we decided against it because it required too many external libraries and it couldn't be done within the timeframe allotted for this project.
+
+---`
+)}
+
+function _4(md){return(
+md`### Development Process
+
+Brian: I explored the differences between D3 and vega-lite in different platforms when applied to a self-hosted website. I then setup the boilerplate code for the data to auto update according to different user inputs. Finally I defined the spec used to create the vega-lite graph used for our interactive graph.
+
+Lukas: Our dataset is over multiple years and I've seen a couple of videos on youtube that was histograms that evolved over years, so since our data could easily accommodate that we decided to use that. Initially, we wanted to use a world map that would change color and saturation with years, but there were many libraries and each country needed a code that the data didn't have so cleaning the data would have been too cumbersome and taken too long.
+
+Amrin: I worked on displaying growth each year to supplement the total users per year visualization that we had implemented. This actually proved more challenging than I had already thought and took significantly more time due to my lack of experience with Javascript and how data is handled in it.
+
+The total time spent in development was roughly 15 hours, with around 4 hours spent per team member working in parallel individually, and a final 3 collaboratively to make our contributions click into place. The most time-consuming aspects of this visualization were: 
+- "getting javascript to work" -Brian
+-  "calculating growth values from totals without royally messing things up in javascript" -Amrin
+- "getting javascript to accept my CSV :(" -Lukas`
+)}
+
+async function _data(d3,FileAttachment){return(
+d3.csvParse(await FileAttachment("173Interactive_1.csv").text(), d3.autoType)
+)}
 
 function _duration(){return(
 250
@@ -306,10 +306,10 @@ export default function define(runtime, observer) {
   ]);
   main.builtin("FileAttachment", runtime.fileAttachments(name => fileAttachments.get(name)));
   main.variable(observer()).define(["md"], _1);
-  main.variable(observer()).define(["md"], _2);
-  main.variable(observer()).define(["md"], _3);
-  main.variable(observer("data")).define("data", ["d3","FileAttachment"], _data);
   main.variable(observer("chart")).define("chart", ["d3","width","height","bars","axis","labels","ticker","keyframes","duration","x","invalidation"], _chart);
+  main.variable(observer()).define(["md"], _3);
+  main.variable(observer()).define(["md"], _4);
+  main.variable(observer("data")).define("data", ["d3","FileAttachment"], _data);
   main.variable(observer("duration")).define("duration", _duration);
   main.variable(observer()).define(["data"], _7);
   main.variable(observer()).define(["d3","data"], _8);
